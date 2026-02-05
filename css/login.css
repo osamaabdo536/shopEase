@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to bottom, #60a5fa, #22d3ee, #2dd4bf);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+form {
+    background-color: white;
+    width: 100%;
+    max-width: 550px;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.icon-box {
+    background-color: #0d9488;
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+.icon-box i {
+    color: white;
+    font-size: 26px;
+}
+
+h1 {
+    font-size: 26px;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+fieldset {
+    border: none;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.row > div {
+    flex: 1;
+}
+
+.input-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.input-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 14px;
+    color: #9ca3af;
+    z-index: 2;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px 14px 12px 42px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+input:focus, textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.error {
+    display: block;
+    min-height: 20px;
+    color: red;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+#btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #60a5fa, #22d3ee, #2dd4bf);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+#btn:active {
+    transform: scale(0.98);
+}
+
+#btn:hover {
+    opacity: 0.95;
+}
+
+.login {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.login a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}

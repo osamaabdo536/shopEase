@@ -1,0 +1,43 @@
+.categories-table {
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.categories-table table {
+    border-collapse: collapse;
+}
+
+.categories-table th {
+    padding: 20px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-dark);
+    border-bottom: 2px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.categories-table th:last-child {
+    text-align: right;
+}
+
+.categories-table td {
+    padding: 20px;
+    text-align: left;
+    color: var(--text-light);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.categories-table td:last-child {
+    text-align: right;
+}
+
+.categories-table tbody tr:hover {
+    background: var(--light-bg);
+}
+
+.category-name {
+    font-weight: 500;
+    color: var(--text-dark);
+}

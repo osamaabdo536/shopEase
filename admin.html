@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/products.css" />
+  <link rel="stylesheet" href="css/orders.css" />
+  <link rel="stylesheet" href="css/categories.css" />
+  <link rel="stylesheet" href="css/popup.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <path d="M9 3v18" />
+          </svg>
+        </div>
+        <span class="title">ShopEase Admin</span>
+      </div>
+
+      <nav class="nav">
+        <ul>
+          <li>
+            <a href="#" class="nav-link active" data-page="products">
+              <span class="icon">
+                <ion-icon name="cube-outline" style="width: 20px; height: 20px"></ion-icon>
+              </span>
+              <span class="title">Products</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="nav-link" data-page="orders">
+              <span class="icon">
+                <ion-icon name="cart-outline" style="width: 20px; height: 20px"></ion-icon>
+              </span>
+              <span class="title">Orders</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="nav-link" data-page="categories">
+              <span class="icon">
+                <ion-icon name="grid-outline" style="width: 20px; height: 20px"></ion-icon>
+              </span>
+              <span class="title">Categories</span>
+            </a>
+          </li>
+
+          <li class="logout">
+            <a href="login.html" class="nav-link" id="logout">
+              <span class="icon">
+                <ion-icon name="log-out-outline" style="width: 20px; height: 20px"></ion-icon>
+              </span>
+              <span class="title">Log out</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="topbar">
+        <div class="search">
+          <ion-icon name="search-outline" style="width: 20px; height: 20px"></ion-icon>
+          <input type="text" placeholder="Search here..." />
+        </div>
+
+        <div class="user">
+          <span class="user-name">Osama Abdelrahman</span>
+          <div class="user-avatar">OA</div>
+        </div>
+      </div>
+
+      <div class="content">
+        <!-- Products Page -->
+        <div class="page active" id="products">
+          <div class="page-header">
+            <h1 class="page-title">Products</h1>
+            <button class="btn-primary" id="addProduct">
+              + Add New Product
+            </button>
+          </div>
+
+          <div class="table-container" id="productsTable" style="display: none">
+            <table>
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Brand</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="productsData"></tbody>
+            </table>
+          </div>
+
+          <div class="error-message" id="errorMessage" style="display: none">
+            <ion-icon name="cube-outline" style="width: 25px; height: 25px"></ion-icon>
+            <p>
+              Failed to load products. Please check your server connection.
+            </p>
+          </div>
+        </div>
+
+        <!-- Orders Page -->
+        <div class="page" id="orders">
+          <h1 class="page-title">Orders</h1>
+          <div class="empty-state">
+            <ion-icon name="cart-outline" style="width: 120px; height: 120px"></ion-icon>
+            <h2>Orders Coming Soon</h2>
+            <p>This section is under construction</p>
+          </div>
+        </div>
+
+        <!-- Categories Page -->
+        <div class="page" id="categories">
+          <div class="page-header">
+            <h1 class="page-title">Categories</h1>
+            <button class="btn-primary" id="addCategory">
+              + Add New Category
+            </button>
+          </div>
+
+          <div class="categories-table" id="categoriesTable" style="display: none">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="categoriesData"></tbody>
+            </table>
+          </div>
+
+          <div class="error-message" id="categoryErrorMessage" style="display: none">
+            <ion-icon name="grid-outline" style="width: 25px; height: 25px"></ion-icon>
+            <p>
+              Failed to load categories. Please check your server connection.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add/Edit Product Modal -->
+  <div class="modal-overlay" id="ProductModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Add New Product</h2>
+      </div>
+
+      <form id="addProductForm">
+        <input type="hidden" id="productId" value="" />
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="productTitle">Product Title</label>
+            <input type="text" id="productTitle" placeholder="e.g. iPhone 15 Pro" required minlength="3"
+              title="Product title must be at least 3 characters" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="productCategory">Category</label>
+              <select id="productCategory" required title="Please select a category">
+                <option value="">Select a category</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="productBrand">Brand</label>
+              <input type="text" id="productBrand" placeholder="e.g. Apple" required minlength="3"
+                title="Brand must be at least 3 characters" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="productQuantity">Quantity</label>
+              <input type="number" id="productQuantity" placeholder="e.g. 10" min="1" required
+                title="Quantity must be 0 or greater" />
+            </div>
+
+            <div class="form-group">
+              <label for="productPrice">Price ($)</label>
+              <input type="number" id="productPrice" placeholder="e.g. 999" min="1" required
+                title="Price must be 0 or greater" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="productImageCover">Image Cover URL</label>
+            <input type="url" id="productImageCover" placeholder="e.g. https://example.com/product.jpg" required
+              pattern="https?://.+" title="Please enter a valid URL starting with http:// or https://" />
+          </div>
+
+          <div class="form-group">
+            <label for="productDescription">Description</label>
+            <textarea id="productDescription" placeholder="Enter product description..." required minlength="10"
+              title="Description must be at least 10 characters" rows="4"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-cancel" id="cancelBtn">
+            Cancel
+          </button>
+          <button type="submit" class="btn-submit" id="submitBtn">
+            Add Product
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add/Edit Category Modal -->
+  <div class="modal-overlay" id="CategoryModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="categoryModalTitle">Add New Category</h2>
+      </div>
+
+      <form id="addCategoryForm">
+        <input type="hidden" id="categoryId" value="" />
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="categoryName">Category Name</label>
+            <input type="text" id="categoryName" placeholder="e.g. Electronics" required minlength="3"
+              title="Category name must be at least 3 characters" />
+          </div>
+
+          <div class="form-group">
+            <label for="categorySlug">Slug</label>
+            <input type="text" id="categorySlug" placeholder="e.g. electronics" required minlength="3"
+              title="Slug must be at least 3 characters" />
+          </div>
+
+          <div class="form-group">
+            <label for="categoryImage">Image URL</label>
+            <input type="url" id="categoryImage" placeholder="e.g. https://example.com/image.jpg" required
+              pattern="https?://.+" title="Please enter a valid URL starting with http:// or https://" />
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-cancel" id="cancelCategoryBtn">
+            Cancel
+          </button>
+          <button type="submit" class="btn-submit" id="submitCategoryBtn">
+            Add Category
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/categories.js"></script>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
