@@ -118,10 +118,21 @@
         <!-- Orders Page -->
         <div class="page" id="orders">
           <h1 class="page-title">Orders</h1>
-          <div class="empty-state">
-            <ion-icon name="cart-outline" style="width: 120px; height: 120px"></ion-icon>
-            <h2>Orders Coming Soon</h2>
-            <p>This section is under construction</p>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Product</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Total</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="ordersBody">
+              </tbody>
+            </table>
           </div>
         </div>
 
@@ -272,6 +283,7 @@
 
   <script src="js/admin.js"></script>
   <script src="js/categories.js"></script>
+  <script src="js/order.js"></script>
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

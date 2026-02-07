@@ -1,22 +1,6 @@
 {
   "products": [
     {
-      "title": "Woman Shawl",
-      "category": {
-        "_id": "6439d58a0049ad0b52b9003f",
-        "name": "Women's Fashion",
-        "slug": "women's-fashion",
-        "image": "https://ecommerce.routemisr.com/Route-Academy-categories/1681511818071.jpeg"
-      },
-      "brand": {
-        "name": "DeFacto"
-      },
-      "quantity": 225,
-      "price": 191,
-      "imageCover": "https://ecommerce.routemisr.com/Route-Academy-products/1680403397402-cover.jpeg",
-      "id": "6428ebc6dc1175abc65ca0b9"
-    },
-    {
       "sold": null,
       "images": [
         "https://ecommerce.routemisr.com/Route-Academy-products/1680402411883-2.jpeg",
@@ -1514,19 +1498,19 @@
       "id": "6408da1c6406cd15828e8f0a"
     },
     {
-      "id": "5cb9",
-      "title": "iphone 17",
-      "description": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
+      "id": "5324",
+      "title": "iphone11",
+      "description": "aaaaaaaaaaaaaaaaaaaaaaaaa",
       "category": {
-        "_id": "3698",
-        "name": "iphone",
-        "slug": "phone",
-        "image": "https://ecommerce.routemisr.com/Route-Academy-products/1680403397482-1.jpeg"
+        "_id": "6439d2d167d9aa4ca970649f",
+        "name": "Electronics",
+        "slug": "electronics",
+        "image": "https://ecommerce.routemisr.com/Route-Academy-categories/1681511121316.png"
       },
       "brand": {
         "name": "apple "
       },
-      "quantity": 5,
+      "quantity": 10,
       "price": 150,
       "imageCover": "https://miamicenters.com/wp-content/uploads/2025/05/bluee.png",
       "images": [
@@ -1614,12 +1598,6 @@
       "image": "https://ecommerce.routemisr.com/Route-Academy-categories/1681511121316.png",
       "createdAt": "2023-04-14T22:25:21.783Z",
       "updatedAt": "2023-04-14T22:25:21.783Z"
-    },
-    {
-      "name": "iphone",
-      "slug": "phone",
-      "image": "https://ecommerce.routemisr.com/Route-Academy-products/1680403397482-1.jpeg",
-      "id": "3698"
     }
   ],
   "orders": [
@@ -2129,6 +2107,60 @@
       "createdAt": "2026-01-29T09:05:20.680Z",
       "updatedAt": "2026-01-29T09:05:20.680Z",
       "id": "76009"
+    },
+    {
+      "id": "0fb4",
+      "userId": "guest",
+      "userEmail": "guest",
+      "date": "07/02/2026",
+      "status": "Confirmed",
+      "totalPrice": "$330",
+      "phone": "01022926683",
+      "address": "Egypt, faiyum",
+      "notes": "zzzzzzzzzzzzzz",
+      "items": [
+        {
+          "title": "iphone 17",
+          "price": 150,
+          "count": 2
+        }
+      ],
+      "createdAt": "2026-02-06T23:17:13.387Z"
+    },
+    {
+      "id": "8064",
+      "userEmail": "osama0987@gmail.com",
+      "userId": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODYyMzA1NTEwMjU4NGM0YTQ2Mzc1NyIsIm5hbWUiOiJPc2FtYSBBYmRlcmhtYW4iLCJyb2xlIjoidXNlciIsImlhdCI6MTc3MDQyNDIyNywiZXhwIjoxNzc4MjAwMjI3fQ.kxpF0p07mY1v7TxwGC09Q2w0ggFX0ER82QRFt2hICl4",
+      "products": [
+        {
+          "productId": "5324",
+          "product": {
+            "id": "5324",
+            "title": "iphone11",
+            "price": 150,
+            "imageCover": "https://miamicenters.com/wp-content/uploads/2025/05/bluee.png",
+            "description": "aaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "price": 150,
+          "count": 1
+        }
+      ],
+      "items": [
+        {
+          "title": "iphone11",
+          "price": 150,
+          "count": 1,
+          "image": "https://miamicenters.com/wp-content/uploads/2025/05/bluee.png"
+        }
+      ],
+      "total": 150,
+      "totalPrice": "$150",
+      "shippingAddress": "Egypt, faiyum",
+      "phone": "01022926683",
+      "notes": "asdasdasz",
+      "status": "Confirmed",
+      "date": "07/02/2026",
+      "createdAt": "2026-02-07T00:31:13.522Z"
     }
   ],
   "wishList": [
@@ -2362,6 +2394,13 @@
       "__v": 7,
       "totalCartPrice": 3023,
       "id": "ed82"
+    },
+    {
+      "id": "49d6",
+      "userEmail": "osama0987@gmail.com",
+      "products": [],
+      "total": 0,
+      "updatedAt": "2026-02-07T00:36:03.471Z"
     }
   ]
 }

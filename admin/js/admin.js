@@ -169,6 +169,7 @@ function addNewProduct() {
   var imageCover = document.getElementById("productImageCover").value;
   var description = document.getElementById("productDescription").value;
 
+  // ✅ التصليح: استخدام _id لمطابقة المنتجات الموجودة
   var categoryData = {
     _id: selectedOption.value,
     name: selectedOption.getAttribute("data-category-name"),
@@ -186,6 +187,7 @@ function addNewProduct() {
     imageCover: imageCover,
     images: [imageCover],
   };
+
   // prevent duplicates
   for (var i = 0; i < products.length; i++) {
     if (products[i].title.toLowerCase() === title.toLowerCase()) {
@@ -193,13 +195,13 @@ function addNewProduct() {
       return;
     }
   }
+
   var http = new XMLHttpRequest();
   http.open("POST", "http://localhost:3000/products");
 
   http.addEventListener("readystatechange", function () {
     if (http.readyState === 4) {
       if (http.status >= 200 && http.status < 300) {
-        for (var i = 0; i < products.length; i++) {}
         products.push(newProduct);
         loadProducts();
         closeModal();
@@ -231,7 +233,9 @@ function editProduct(productId) {
 
   document.getElementById("productTitle").value = product.title;
 
-  document.getElementById("productCategory").value = product.category._id;
+  // ✅ التصليح: دعم كل من _id و id
+  document.getElementById("productCategory").value =
+    product.category._id || product.category.id;
   document.getElementById("productBrand").value = product.brand.name;
   document.getElementById("productQuantity").value = product.quantity;
   document.getElementById("productPrice").value = product.price;
@@ -258,6 +262,7 @@ function updateProduct() {
   var imageCover = document.getElementById("productImageCover").value;
   var description = document.getElementById("productDescription").value;
 
+  // ✅ التصليح: استخدام _id لمطابقة المنتجات الموجودة
   var categoryData = {
     _id: selectedOption.value,
     name: selectedOption.getAttribute("data-category-name"),

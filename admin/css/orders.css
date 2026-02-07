@@ -1,0 +1,11 @@
+.item-card {
+    transition: transform 0.2s;
+    background-color: #f8f9fa;
+}
+.item-card:hover {
+    transform: scale(1.02);
+    background-color: #ffffff;
+}
+.align-middle td {
+    vertical-align: middle !important;
+}

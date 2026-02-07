@@ -51,9 +51,9 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       const res = JSON.parse(xhr.responseText);
       if (xhr.status >= 200 && xhr.status < 300) {
         localStorage.setItem("userData", JSON.stringify(res.user));
-        window.location.href = "admin.html";
+        window.location.replace("admin.html");
       } else {
-        window.location.href = "login.html";
+        window.location.replace("login.html");
       }
     }
   };

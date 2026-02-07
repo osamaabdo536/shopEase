@@ -221,13 +221,10 @@ function updateProductsWithCategory(categoryId, updatedCategoryData) {
       httpGet.status < 300
     ) {
       var allProducts = JSON.parse(httpGet.responseText);
-      console.log("All products:", allProducts);
-      // لقي كل المنتجات اللي بتستخدم الـ category دي
       for (var i = 0; i < allProducts.length; i++) {
         var product = allProducts[i];
 
         if (product.category._id == categoryId) {
-          // عدّل بيانات الـ category في المنتج
           product.category = {
             _id: categoryId,
             name: updatedCategoryData.name,
@@ -235,7 +232,6 @@ function updateProductsWithCategory(categoryId, updatedCategoryData) {
             image: updatedCategoryData.image,
           };
           console.log("Updated product category:", product.category);
-          // ابعت الـ update للـ server
           var httpUpdate = new XMLHttpRequest();
           httpUpdate.open(
             "PUT",
